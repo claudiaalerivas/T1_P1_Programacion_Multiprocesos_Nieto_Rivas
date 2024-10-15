@@ -1,2 +1,9 @@
-# T1_P1_Programacion_Multiprocesos_Nieto_Rivas
-Esta practica tiene como objetivo leer un archivo que contiene números aleatorios, identificar cuáles de esos números son primos, y luego retornar esos números en un fichero
+# Programación multiprocesos -  Calculo número primos
+
+_**Claculo números primos**, es un programa que trabaja con procesos independientes para resolver tareas en paralelo, específicamente con el calculo de números primos que se encuentran dentro de un fichero .txt que contiene números ramdon_
+
+
+**Autor del proyecto:** Doménica Alejandra Nieto León , Claudia Alejandra Rivas Estupiñan.
+
+---
+- Encuentra el _**Manual de Programa**_ [<<**aquí**>>](docs/MANUAL_PROGRAMA.md) 
