@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 
 import org.salesianos.util.FileHelper;
@@ -14,6 +15,11 @@ public class App {
 
         for (int i = 0; i < numbers.size(); i++) {
             String pathFile = "./output/temp/" + numbers.get(i) + ".txt";
+            File file = new File(pathFile);
+            File carpeta = file.getParentFile();
+            if (!carpeta.exists()) {
+                carpeta.mkdirs();
+            }
             Process subProcess = ProcessLauncher.initIsPrime(numbers.get(i), pathFile);
             processes.add(subProcess);
             numbersTemp.add(pathFile);
@@ -21,6 +27,13 @@ public class App {
         for (Process subProcess : processes) {
             subProcess.waitFor();
         }
+
+        for (int i = 0; i < numbers.size(); i++) {
+            String pathFile = "./output/temp/" + numbers.get(i) + ".txt";
+            File file = new File(pathFile);
+            file.delete();
+        }
+
         FileHelper.mergePrimeFiles(numbersTemp, ROUTE_FINAL);
 
         System.out.println("There are " + FileHelper.getNumbersCount(ROUTE_FINAL) + " prime numbers.");
