@@ -77,4 +77,20 @@ public class FileHelper {
         }
         return count;
     }
+
+    public static void showPrimes(String outputPath) throws IOException {
+
+        System.out.println("Prime numbers found: ");
+        try (BufferedReader reader = new BufferedReader(new FileReader(outputPath))) {
+            String linea = reader.readLine();
+
+            while (linea != null) {
+                System.out.println(linea.trim());
+                linea = reader.readLine();
+            }
+
+        } catch (Exception e) {
+            System.out.println("Can´t read file:" + outputPath);
+        }
+    }
 }
