@@ -57,4 +57,24 @@ public class FileHelper {
             System.out.println("Error writing to file.");
         }
     }
+
+    public static int getNumbersCount(String outputFile) {
+        int count = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(outputFile, StandardCharsets.UTF_8))) {
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                try {
+                    Integer.parseInt(line.trim());
+                    count++;
+                } catch (Exception e) {
+                    System.out.println("There is no number on the line.");
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Can´t read file:");
+        }
+        return count;
+    }
 }
